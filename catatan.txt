@@ -1,0 +1,59 @@
+A) Single Responsibility Principles
+    : Semua class, modules, dan function harus punya
+    satu tanggung jawab. 
+
+    A.1) Before
+    : Pada class CalorieTracker ia terdapat dua tanggung jawab.
+    Mentrack calories dan menotifiikasi. Seharusnya class
+    CalorieTraker hanya dipergunakan untuk mengtrack calories bukan
+    menotifikasi. 
+
+    A.2) After
+    : Solusinya ialah merefactor notifyUserSurplus ke dalam
+    module lain.
+
+B) Open Closed Principles
+    : Classes, modules, dan functions harus terbuka untuk
+    extension, tetapi tertutup untuk modifications. Misal
+    
+    B.1) Before
+    : Pada function printQuiz ia menerima parameter questions.
+    Kemudian, ia akan memprint pertanyaan beserta bagaimana input
+    jawabannya. 
+        Namun bagaimana bila kita ingin menambahkan opsi pertanyaan
+    baru. Maka kita harus mengubah function printQuiznya. Hal
+    ini bertentangan dengan open closed principles. Seharusnya
+    function printQuiz dapat menghandle opsi pertanyaan baru
+    tanpa kita memodifikasi function tersebut.
+
+    B.2) After
+    : Solusinya ialah memfactor function printQuiz. ia hanya
+    menerima array of class dan memanggil property description 
+    dan property printQuiz. Setiap opsinya dijadikan class.
+
+C) Liskov Substitutions Principles
+    : Jika anda mempunyai class contohnya Animal. Setiap
+    anda menggunakan class Animal anda dapat menggantinya dengan
+    subclassnya. Misal kita memiliki class Dog yang inherit
+    dari Animal. Maka setiap kita menggunakan class Animal anda
+    juga dapat menggunakan Dog.
+
+    C.1) Shape Before
+    : Terdapat dua class Rectangle dan Square. setiap square mengset widht ia juga akan mengset height dengan
+    nilai widthnya. Kemudian ada function increaseRectangleWidth yang menerima parameter rectangle. Ia akan menambahkan
+    1 nilai widthnya.
+        Bila kita memasukan object Square pada increaseRectangleWidth. Ia tidak hanya menambahkan widthnya
+    ia juga akan mengset heightnya. Hal ini bertentangan dengan liskov substitution principles. Sub class
+    square tidak kompatibel dengan function ini.
+
+    C.2) Shape After
+    : Membuat class Shape dan rectangle dan square mengextends Shape
+
+    C.3) birdBefore
+    : Terdapat class bird, pinguin, dan duck. Class bird memiliki function fly. Class pinguin dan duck mengextends
+    class bird. Tetapi pinguin tidak dapat fly. Terdapat function makeBirdFly
+    dimana ia menerima property bird dan menjalankan property bird.fly.
+
+    C.4) birdAfter
+    : Solusinya pinguin tidak boleh mengextends bird. Dibuatlah
+    class baru bernama SwimmingBird 

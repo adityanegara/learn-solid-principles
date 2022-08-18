@@ -1,3 +1,11 @@
+A) Apa itu SOLID 
+    : SOLID ialah acronym dari 5 object dalam object oriented design
+    karangan Robert C.Martin. Principle ini menerapkan praktik yang
+    cocok untuk mengembangkan perangkat lunak dengan pertimbangan
+    maintenance dan memperluas code. Menerapkan praktik ini juga 
+    berkontribusi mencegah code smells, refactoring code, dan agile 
+    atau adaptive development.
+
 A) Single Responsibility Principles
     : Semua class, modules, dan function harus punya
     satu tanggung jawab. 
@@ -57,3 +65,10 @@ C) Liskov Substitutions Principles
     C.4) birdAfter
     : Solusinya pinguin tidak boleh mengextends bird. Dibuatlah
     class baru bernama SwimmingBird 
+
+D) Interface Segragation Principle
+    : Setiap class, method, variables yang mengimplementasikan suatu
+    interface harus menerapkan semua bagian dari interface tersebut.
+
+E) Dependency Inversion Principle
+    : 

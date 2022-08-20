@@ -22,7 +22,7 @@ A) Single Responsibility Principles
 
 B) Open Closed Principles
     : Classes, modules, dan functions harus terbuka untuk
-    extension, tetapi tertutup untuk modifications. Misal
+    extension, tetapi tertutup untuk modifications. 
     
     B.1) Before
     : Pada function printQuiz ia menerima parameter questions.
@@ -40,11 +40,9 @@ B) Open Closed Principles
     dan property printQuiz. Setiap opsinya dijadikan class.
 
 C) Liskov Substitutions Principles
-    : Jika anda mempunyai class contohnya Animal. Setiap
-    anda menggunakan class Animal anda dapat menggantinya dengan
-    subclassnya. Misal kita memiliki class Dog yang inherit
-    dari Animal. Maka setiap kita menggunakan class Animal anda
-    juga dapat menggunakan Dog.
+    : Jika anda mempunyai class contohnya Animal. Dan ada class Dog yang mengextends Animal.
+    Jika anda membuat function yang menerima parameter Animal, kemudian memasukan object Dog dalam
+    function tersebut. Ia harus tetap berfungsi. 
 
     C.1) Shape Before
     : Terdapat dua class Rectangle dan Square. setiap square mengset widht ia juga akan mengset height dengan
@@ -70,5 +68,15 @@ D) Interface Segragation Principle
     : Setiap class, method, variables yang mengimplementasikan suatu
     interface harus menerapkan semua bagian dari interface tersebut.
 
-E) Dependency Inversion Principle
-    : 
+    D.1) Before 
+    : Terdapat class Entity yang memiliki function move, attack, takeDamage. Class character
+    mengextends entitiy dan menggunakan semua functionnya.  Class Wall yang juga mengextends
+    entity tetapi tidak menggunakan function move dan attack. Class Turret yang mengextends 
+    entity tetapi tidak menggunakan function move dan take damage. Hal ini bertentangan
+    dengan prinsip interface segragation. Seharusnya semua function yang diturunkan entity
+    harus digunakan oleh class yang mengextendnya.
+
+    D.2) After
+    : Class Entity hanya memiliki property name. Function move, attack, dan takeDamage dipisahkan.
+    Class Human mengextends entity dan menerapkan function move, attack, dan takeDamage. Class Wall
+    mengextends entity menerapkan takeDamage, Class Turrent mengextends entity hanya menerapkan attack.
